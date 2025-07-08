@@ -1,0 +1,5 @@
+
+{
+  "name": "AI Resume Shortlister",
+  "description": "An interactive web application that uses the Gemini API to analyze and shortlist resumes based on a provided job description. Users can upload multiple resumes and receive a detailed, card-based summary for each candidate, including a match score and skill analysis."
+}

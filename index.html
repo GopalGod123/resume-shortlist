@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Shortlister - Find Your Perfect Candidates</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              display: ['Poppins', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              border: "hsl(220, 13%, 91%)",
+              input: "hsl(220, 13%, 91%)",
+              ring: "hsl(262, 83%, 58%)",
+              background: "hsl(210, 20%, 98%)",
+              foreground: "hsl(224, 71%, 4%)",
+              primary: {
+                DEFAULT: "hsl(262, 83%, 58%)",
+                foreground: "hsl(0, 0%, 100%)",
+                50: "hsl(262, 83%, 97%)",
+                100: "hsl(262, 83%, 90%)",
+                200: "hsl(262, 83%, 80%)",
+                300: "hsl(262, 83%, 70%)",
+                400: "hsl(262, 83%, 60%)",
+                500: "hsl(262, 83%, 58%)",
+                600: "hsl(262, 83%, 48%)",
+                700: "hsl(262, 83%, 38%)",
+                800: "hsl(262, 83%, 28%)",
+                900: "hsl(262, 83%, 18%)",
+              },
+              secondary: {
+                DEFAULT: "hsl(220, 14%, 96%)",
+                foreground: "hsl(224, 71%, 4%)",
+              },
+              destructive: {
+                DEFAULT: "hsl(0, 84%, 60%)",
+                foreground: "hsl(0, 0%, 100%)",
+              },
+              success: {
+                DEFAULT: "hsl(142, 76%, 36%)",
+                foreground: "hsl(0, 0%, 100%)",
+              },
+              warning: {
+                DEFAULT: "hsl(45, 93%, 47%)",
+                foreground: "hsl(0, 0%, 100%)",
+              },
+              muted: {
+                DEFAULT: "hsl(220, 14%, 96%)",
+                foreground: "hsl(220, 10%, 40%)",
+              },
+              accent: {
+                DEFAULT: "hsl(220, 14%, 96%)",
+                foreground: "hsl(224, 71%, 4%)",
+              },
+              card: {
+                DEFAULT: "hsl(0, 0%, 100%)",
+                foreground: "hsl(224, 71%, 4%)",
+              },
+            },
+            borderRadius: {
+              lg: `1rem`,
+              md: `0.75rem`,
+              sm: `0.5rem`,
+            },
+            boxShadow: {
+              'sm': '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+              'DEFAULT': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+              'md': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+              'lg': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+              'xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
+              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 3s ease-in-out infinite',
+              'bounce-slow': 'bounce 2s ease-in-out infinite',
+              'gradient': 'gradient 15s ease infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              gradient: {
+                '0%, 100%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+              },
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+              'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.8.0",
+    "react-dropzone": "https://esm.sh/react-dropzone@^14.3.8",
+    "lucide-react": "https://esm.sh/lucide-react@^0.418.0",
+    "framer-motion": "https://esm.sh/framer-motion@^11.3.19"
+  }
+}
+</script>
+<style>
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(220, 14%, 96%);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(262, 83%, 58%);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(262, 83%, 48%);
+  }
+  
+  /* Glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  /* Animated gradient background */
+  .gradient-bg {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  /* Smooth transitions */
+  * {
+    transition: all 0.3s ease;
+  }
+</style>
+</head>
+  <body class="bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>
