@@ -18,7 +18,7 @@ const Dialog: React.FC<DialogProps> = ({ open, onOpenChange, children }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60"
+            className="fixed inset-0 bg-black/60 dark:bg-black/80"
             onClick={() => onOpenChange(false)}
           />
           {React.Children.map(children, (child) =>
@@ -46,7 +46,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 30 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      className={`fixed inset-4 sm:inset-6 md:inset-8 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:w-[90vw] lg:max-w-md lg:max-h-[90vh] lg:inset-auto max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] md:max-h-[calc(100vh-4rem)] overflow-y-auto bg-card rounded-lg p-4 sm:p-6 shadow-lg z-50 ${className || ''}`}
+      className={`fixed inset-4 sm:inset-6 md:inset-8 lg:top-4 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-0 lg:w-[90vw] lg:max-w-md lg:max-h-[calc(100vh-2rem)] lg:inset-auto max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] md:max-h-[calc(100vh-4rem)] overflow-y-auto bg-card dark:bg-gray-800 rounded-lg p-4 sm:p-6 shadow-lg z-50 border dark:border-gray-700 transition-colors duration-300 ${className || ''}`}
     >
       {children}
       {onOpenChange && (
@@ -69,7 +69,7 @@ const DialogHeader: React.FC<{ children: React.ReactNode, className?: string }> 
 );
 
 const DialogTitle: React.FC<{ children: React.ReactNode, className?: string }> = ({ children, className }) => (
-  <h2 className={`text-lg font-semibold text-foreground ${className || ''}`}>{children}</h2>
+  <h2 className={`text-lg font-semibold text-foreground dark:text-gray-100 ${className || ''}`}>{children}</h2>
 );
 
 

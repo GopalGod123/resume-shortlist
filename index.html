@@ -14,6 +14,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
@@ -67,6 +68,46 @@
               card: {
                 DEFAULT: "hsl(0, 0%, 100%)",
                 foreground: "hsl(224, 71%, 4%)",
+              },
+            },
+            // Dark mode color overrides
+            dark: {
+              border: "hsl(215, 27%, 17%)",
+              input: "hsl(215, 27%, 17%)",
+              ring: "hsl(262, 83%, 58%)",
+              background: "hsl(224, 71%, 4%)",
+              foreground: "hsl(213, 31%, 91%)",
+              primary: {
+                DEFAULT: "hsl(262, 83%, 58%)",
+                foreground: "hsl(0, 0%, 100%)",
+              },
+              secondary: {
+                DEFAULT: "hsl(215, 27%, 17%)",
+                foreground: "hsl(213, 31%, 91%)",
+              },
+              destructive: {
+                DEFAULT: "hsl(0, 84%, 60%)",
+                foreground: "hsl(0, 0%, 100%)",
+              },
+              success: {
+                DEFAULT: "hsl(142, 76%, 36%)",
+                foreground: "hsl(0, 0%, 100%)",
+              },
+              warning: {
+                DEFAULT: "hsl(45, 93%, 47%)",
+                foreground: "hsl(0, 0%, 100%)",
+              },
+              muted: {
+                DEFAULT: "hsl(215, 27%, 17%)",
+                foreground: "hsl(217, 10%, 64%)",
+              },
+              accent: {
+                DEFAULT: "hsl(215, 27%, 17%)",
+                foreground: "hsl(213, 31%, 91%)",
+              },
+              card: {
+                DEFAULT: "hsl(224, 71%, 4%)",
+                foreground: "hsl(213, 31%, 91%)",
               },
             },
             borderRadius: {
@@ -133,6 +174,10 @@
     background: hsl(220, 14%, 96%);
   }
   
+  .dark ::-webkit-scrollbar-track {
+    background: hsl(215, 27%, 17%);
+  }
+  
   ::-webkit-scrollbar-thumb {
     background: hsl(262, 83%, 58%);
     border-radius: 4px;
@@ -150,6 +195,11 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
   
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
   /* Animated gradient background */
   .gradient-bg {
     background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
@@ -163,7 +213,7 @@
   }
 </style>
 </head>
-  <body class="bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 min-h-screen">
+  <body class="bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-slate-900 dark:to-gray-800 min-h-screen transition-colors duration-300">
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
   </body>

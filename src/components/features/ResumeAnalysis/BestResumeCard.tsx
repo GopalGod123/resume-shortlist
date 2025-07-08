@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../../ui/Card';
+import Card, { CardContent, CardHeader, CardTitle } from '../../ui/Card';
 import Badge from '../../ui/Badge';
 import Progress from '../../ui/Progress';
 import Button from '../../ui/Button';
@@ -91,17 +91,17 @@ const BestResumeCard: React.FC<BestResumeCardProps> = ({ result }) => {
         {/* Matched Skills */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
-            <Star className="w-5 h-5 text-amber-500" />
-            <span className="text-sm font-semibold text-gray-800">Matched Skills ({result.matched_skills.length})</span>
+            <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
+            <span className="text-xs sm:text-sm font-semibold text-gray-800">Matched Skills ({result.matched_skills.length})</span>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1 sm:gap-2">
             {result.matched_skills.slice(0, 6).map((skill: string, index: number) => (
-              <Badge key={index} variant="success" className="text-sm px-3 py-1">
+              <Badge key={index} variant="success" className="text-xs sm:text-sm px-2 py-1 sm:px-3">
                 {skill}
               </Badge>
             ))}
             {result.matched_skills.length > 6 && (
-              <Badge variant="default" className="text-sm text-gray-600">
+              <Badge variant="default" className="text-xs sm:text-sm text-gray-600">
                 +{result.matched_skills.length - 6} more
               </Badge>
             )}
@@ -111,17 +111,17 @@ const BestResumeCard: React.FC<BestResumeCardProps> = ({ result }) => {
         {/* Missing Skills */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
-            <Award className="w-5 h-5 text-orange-500" />
-            <span className="text-sm font-semibold text-gray-800">Areas for Improvement ({result.missing_skills.length})</span>
+            <Award className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" />
+            <span className="text-xs sm:text-sm font-semibold text-gray-800">Areas for Improvement ({result.missing_skills.length})</span>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1 sm:gap-2">
             {result.missing_skills.slice(0, 4).map((skill: string, index: number) => (
-              <Badge key={index} variant="destructive" className="text-sm px-3 py-1">
+              <Badge key={index} variant="destructive" className="text-xs sm:text-sm px-2 py-1 sm:px-3">
                 {skill}
               </Badge>
             ))}
             {result.missing_skills.length > 4 && (
-              <Badge variant="default" className="text-sm text-gray-600">
+              <Badge variant="default" className="text-xs sm:text-sm text-gray-600">
                 +{result.missing_skills.length - 4} more
               </Badge>
             )}
@@ -130,8 +130,8 @@ const BestResumeCard: React.FC<BestResumeCardProps> = ({ result }) => {
 
         {/* Summary */}
         <div className="space-y-3">
-          <span className="text-sm font-semibold text-gray-800">Executive Summary</span>
-          <p className="text-sm text-gray-700 leading-relaxed bg-white/60 p-3 rounded-lg">
+          <span className="text-xs sm:text-sm font-semibold text-gray-800">Executive Summary</span>
+          <p className="text-xs sm:text-sm text-gray-700 leading-relaxed bg-white/60 p-2 sm:p-3 rounded-lg">
             {result.summary}
           </p>
         </div>
@@ -203,7 +203,7 @@ const BestResumeCard: React.FC<BestResumeCardProps> = ({ result }) => {
               </DialogContent>
             </Dialog>
             
-            <Button variant="outline" className="border-amber-300 text-amber-600 hover:bg-amber-50">
+            <Button variant="outline" className="border-amber-300 text-amber-600 hover:bg-amber-50 text-sm sm:text-base">
               <Download className="w-4 h-4 mr-2" />
               Download
             </Button>

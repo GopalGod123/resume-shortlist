@@ -3,6 +3,7 @@ import React from 'react';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'destructive' | 'secondary' | 'ghost' | 'outline';
   size?: 'sm' | 'md' | 'lg' | 'icon';
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({ className, variant = 'primary', size = 'md', ...props }) => {
@@ -11,9 +12,9 @@ const Button: React.FC<ButtonProps> = ({ className, variant = 'primary', size = 
   const variantClasses = {
     primary: "bg-primary text-primary-foreground hover:bg-primary/90",
     destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-    ghost: "hover:bg-accent hover:text-accent-foreground",
-    outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700",
+    ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-gray-800 dark:hover:text-gray-100",
+    outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 dark:hover:bg-gray-800",
   };
 
   const sizeClasses = {

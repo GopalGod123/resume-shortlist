@@ -11,8 +11,8 @@ const Badge: React.FC<BadgeProps> = ({ variant = 'default', children, className 
   
   const variantClasses = {
     default: "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
-    success: "border-transparent bg-green-100 text-green-800 font-medium",
-    destructive: "border-transparent bg-red-100 text-red-800 font-medium",
+    success: "border-transparent bg-green-100 text-green-800 font-medium dark:bg-green-900 dark:text-green-100",
+    destructive: "border-transparent bg-red-100 text-red-800 font-medium dark:bg-red-900 dark:text-red-100",
   };
 
   return (

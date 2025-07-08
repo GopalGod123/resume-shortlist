@@ -105,31 +105,31 @@ const HomePage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-slate-900 dark:to-gray-800 flex items-center justify-center transition-colors duration-300">
         <div className="text-center">
           <LoadingSpinner />
-          <div className="mt-8 max-w-md">
-            <div className="mb-4">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Processing Resumes</h3>
-              <p className="text-gray-600 text-sm">{processingStatus}</p>
-            </div>
+                      <div className="mt-8 max-w-md">
+              <div className="mb-4">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">Processing Resumes</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">{processingStatus}</p>
+              </div>
             
             {uploadedFiles.length > 0 && (
               <>
-                <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-4">
                   <div 
-                    className="bg-gradient-to-r from-purple-600 to-blue-600 h-3 rounded-full transition-all duration-300"
+                    className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 h-3 rounded-full transition-all duration-300"
                     style={{ width: `${(processedCount / uploadedFiles.length) * 100}%` }}
                   />
                 </div>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   {processedCount} of {uploadedFiles.length} files processed
                 </p>
               </>
             )}
             
-            <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
-              <p className="text-sm text-amber-700">
+            <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
+              <p className="text-sm text-amber-700 dark:text-amber-300">
                 <strong>⏱️ Processing sequentially to avoid rate limits</strong><br/>
                 Each resume takes about 2-3 seconds to analyze properly.
               </p>
@@ -141,7 +141,7 @@ const HomePage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-slate-900 dark:to-gray-800 transition-colors duration-300">
       {results.length === 0 ? (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Hero Section */}
@@ -152,45 +152,45 @@ const HomePage: React.FC = () => {
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
               AI Resume Shortlister
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
               Discover your perfect candidates with the power of AI. Upload resumes, define your requirements, and let our intelligent system find the best matches.
             </p>
           </div>
 
           {/* Feature Cards */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center p-6 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20">
+            <div className="text-center p-6 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/50">
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold text-lg mb-2">Smart Matching</h3>
-              <p className="text-gray-600">Advanced AI algorithms analyze skills, experience, and qualifications</p>
+              <h3 className="font-semibold text-lg mb-2 dark:text-gray-100">Smart Matching</h3>
+              <p className="text-gray-600 dark:text-gray-300">Advanced AI algorithms analyze skills, experience, and qualifications</p>
             </div>
-            <div className="text-center p-6 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20">
+            <div className="text-center p-6 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/50">
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold text-lg mb-2">Sequential Processing</h3>
-              <p className="text-gray-600">Process resumes one by one to ensure quality analysis without rate limits</p>
+              <h3 className="font-semibold text-lg mb-2 dark:text-gray-100">Sequential Processing</h3>
+              <p className="text-gray-600 dark:text-gray-300">Process resumes one by one to ensure quality analysis without rate limits</p>
             </div>
-            <div className="text-center p-6 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20">
+            <div className="text-center p-6 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/50">
               <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold text-lg mb-2">Real-time Results</h3>
-              <p className="text-gray-600">See results as each resume is processed with live progress updates</p>
+              <h3 className="font-semibold text-lg mb-2 dark:text-gray-100">Real-time Results</h3>
+              <p className="text-gray-600 dark:text-gray-300">See results as each resume is processed with live progress updates</p>
             </div>
           </div>
 
           {/* Rate Limit Info */}
-          <div className="mb-8 p-6 bg-blue-50 rounded-2xl border border-blue-200">
+          <div className="mb-8 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-2xl border border-blue-200 dark:border-blue-800">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Sparkles className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0">
+                <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-blue-900 mb-2">Optimized Processing</h3>
-                <p className="text-blue-700 text-sm leading-relaxed">
+                <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">Optimized Processing</h3>
+                <p className="text-blue-700 dark:text-blue-300 text-sm leading-relaxed">
                   We process resumes sequentially with smart delays to ensure consistent, high-quality analysis. 
                   This approach prevents rate limits and gives you the best results every time.
                 </p>
@@ -199,10 +199,10 @@ const HomePage: React.FC = () => {
           </div>
 
           {/* Main Content */}
-          <div className="bg-white/70 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 p-8 lg:p-12">
+          <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 p-8 lg:p-12 transition-colors duration-300">
             <div className="mb-8">
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Start New Analysis</h2>
-              <p className="text-gray-600">Fill out the details below to begin shortlisting your candidates.</p>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Start New Analysis</h2>
+              <p className="text-gray-600 dark:text-gray-400">Fill out the details below to begin shortlisting your candidates.</p>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -231,7 +231,7 @@ const HomePage: React.FC = () => {
               <button
                 onClick={handleAnalyze}
                 disabled={isAnalysisDisabled}
-                className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 dark:from-purple-500 dark:to-blue-500 dark:hover:from-purple-600 dark:hover:to-blue-600 text-white font-semibold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl dark:shadow-purple-500/25"
               >
                 <Sparkles className="w-5 h-5 mr-2 inline" />
                 Analyze Resumes ({uploadedFiles.length})

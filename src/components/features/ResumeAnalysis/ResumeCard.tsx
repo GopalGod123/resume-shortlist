@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../../ui/Card';
+import Card, { CardContent, CardHeader, CardTitle } from '../../ui/Card';
 import Badge from '../../ui/Badge';
 import Progress from '../../ui/Progress';
 import { User, Mail, Star, Building, Award } from 'lucide-react';
@@ -32,7 +32,7 @@ const ResumeCard: React.FC<ResumeCardProps> = ({ result }) => {
   };
 
   return (
-    <Card className="group hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm border-white/20 hover:bg-white/90">
+    <Card className="group hover:shadow-xl transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-white/20 dark:border-gray-700/50 hover:bg-white/90 dark:hover:bg-gray-800/90">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
@@ -40,10 +40,10 @@ const ResumeCard: React.FC<ResumeCardProps> = ({ result }) => {
               <User className="w-6 h-6 text-white" />
             </div>
                          <div>
-               <CardTitle className="text-lg font-semibold text-gray-900 line-clamp-1">
+               <CardTitle className="text-lg font-semibold text-gray-900 dark:text-gray-100 line-clamp-1">
                  {result.candidate_name}
                </CardTitle>
-               <p className="text-sm text-gray-600 flex items-center gap-1">
+               <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1">
                  <Mail className="w-3 h-3" />
                  Resume Analysis
                </p>
@@ -61,7 +61,7 @@ const ResumeCard: React.FC<ResumeCardProps> = ({ result }) => {
         {/* Score Progress */}
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
-            <span className="text-gray-600">Match Score</span>
+            <span className="text-gray-600 dark:text-gray-400">Match Score</span>
             <span className={`font-semibold ${getScoreColor(result.match_score)}`}>
               {result.match_score}%
             </span>
@@ -73,10 +73,10 @@ const ResumeCard: React.FC<ResumeCardProps> = ({ result }) => {
         </div>
 
         {/* Matched Skills */}
-        <div className="space-y-2">
+                  <div className="space-y-2">
           <div className="flex items-center gap-2">
-            <Star className="w-4 h-4 text-gray-500" />
-            <span className="text-sm font-medium text-gray-700">Matched Skills</span>
+            <Star className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Matched Skills</span>
           </div>
           <div className="flex flex-wrap gap-1 pl-6">
             {result.matched_skills.slice(0, 4).map((skill: string, index: number) => (
@@ -95,8 +95,8 @@ const ResumeCard: React.FC<ResumeCardProps> = ({ result }) => {
         {/* Missing Skills */}
         <div className="space-y-2">
           <div className="flex items-center gap-2">
-            <Award className="w-4 h-4 text-gray-500" />
-            <span className="text-sm font-medium text-gray-700">Missing Skills</span>
+            <Award className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Missing Skills</span>
           </div>
           <div className="flex flex-wrap gap-1 pl-6">
             {result.missing_skills.slice(0, 3).map((skill: string, index: number) => (
@@ -114,15 +114,15 @@ const ResumeCard: React.FC<ResumeCardProps> = ({ result }) => {
 
         {/* Summary */}
         <div className="space-y-2">
-          <span className="text-sm font-medium text-gray-700">Summary</span>
-          <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed">
+          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Summary</span>
+          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 leading-relaxed">
             {result.summary}
           </p>
         </div>
 
         {/* File Info */}
-        <div className="pt-3 border-t border-gray-200">
-          <p className="text-xs text-gray-500 truncate">
+        <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+          <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
             📄 {result.fileName}
           </p>
         </div>

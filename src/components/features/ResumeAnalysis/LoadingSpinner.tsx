@@ -8,8 +8,8 @@ interface SpinnerProps {
 
 const Spinner: React.FC<SpinnerProps> = ({ message = "Analyzing resumes with AI..." }) => {
   return (
-    <div className="fixed inset-0 bg-black/20 backdrop-blur-sm flex flex-col items-center justify-center z-50">
-      <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20 max-w-md mx-4">
+    <div className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm flex flex-col items-center justify-center z-50">
+      <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20 dark:border-gray-700/50 max-w-md mx-4 transition-colors duration-300">
         <div className="flex flex-col items-center text-center">
           {/* Animated Logo */}
           <div className="relative mb-6">
@@ -33,22 +33,22 @@ const Spinner: React.FC<SpinnerProps> = ({ message = "Analyzing resumes with AI.
           </div>
 
           {/* Message */}
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">Processing...</h3>
-          <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Processing...</h3>
+          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-sm">
             {message}
           </p>
 
           {/* Progress Steps */}
           <div className="mt-6 space-y-2 w-full">
-            <div className="flex items-center gap-3 text-sm text-gray-600">
+            <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <span>Extracting text from PDFs</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-gray-600">
+            <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
               <span>Analyzing with Gemini AI</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-gray-600">
+            <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
               <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
               <span>Calculating match scores</span>
             </div>
